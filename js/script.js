@@ -125,18 +125,18 @@ const icons = [
 const ContainerCards = document.getElementById("cards");
  
 // per stampare le carte usiamo il ciclo forEach per elemento
-icons.forEach(
-	(element) => {
+// icons.forEach(
+// 	(element) => {
 
-		// destrutturazione per selezionare le proprieta dal  nostro oggetto
-		const{name, family, prefix} = element;
-		// attenzione "= element" e non "= icons"!!!
+// 		// destrutturazione per selezionare le proprieta dal  nostro oggetto
+// 		const{name, family, prefix} = element;
+// 		// attenzione "= element" e non "= icons"!!!
 
-		ContainerCards.innerHTML += `<div class="card">
-									<i class="${family} ${prefix}${name}"><div class "icon-name">${name}</div></i>
-									</div>`;
-					}
-	);
+// 		ContainerCards.innerHTML += `<div class="card">
+// 									<i class="${family} ${prefix}${name}"><div class "icon-name">${name}</div></i>
+// 									</div>`;
+// 					}
+// 	);
 
 // Milestone 2
 // Coloriamo le icone per tipo
@@ -160,6 +160,8 @@ const coloredCards = icons.map(
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 
+
+// prima creamo il ciclo per salvre le categorie in un arr
 const categorie = [];
 icons.forEach(element => {
 	if(categorie.includes(element.category)==false){
@@ -168,9 +170,24 @@ icons.forEach(element => {
 });
 // console.log(categorie);
 
+// poi con ciclo li "divediamo" per stampare uno
 const filtro = document.getElementById("filtro");
 categorie.forEach(
 	(element)=>{
 		filtro.innerHTML += `<option value="${element}">${element}</option>`
+	}
+);
+
+filtro.addEventListener("change",
+	function(){
+		const iconsFiltered = coloredCards.filter(
+			(element)=>{
+				if(element.category==filtro.value){
+					return true; 
+					}
+					return false;
+				}
+		);
+		//  qua sara il codice per stampre icone filtrate
 	}
 );
