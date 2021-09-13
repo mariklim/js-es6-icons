@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* FONTS */
+
+/* titolo: */
+/* font-family: 'Acme', sans-serif; */
+
+/* Common */
+body{
+    font-family: 'Rubik', sans-serif;
+    height: 100wh;
+}
+
+/* Header */
+.search-bar{
+padding: 20px;
+background-color:rgb(41, 177, 221);    
+text-align: center;
+
+}
+h1{
+    font-family: 'Acme', sans-serif;
+    color: rgb(41, 177, 221);
+    padding: 20px;
+}
+
+/* main */
+main{
+    height: 100wh-40px;
+    padding: 40px;
+    display: flex;
+}
+
+.card{
+    text-align: center;
+    line-height: 100px;
+    width: 200px;
+    height: 100px;
+    border-radius: 2px;
+    background: rgb(214, 212, 212);
+    box-shadow: 2px 2px 2px #383535;
+}
