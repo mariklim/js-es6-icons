@@ -155,6 +155,22 @@ const coloredCards = icons.map(
 	}
 );
 
-
 // console.log(coloredCards);
 
+// Milestone 3
+// Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+const categorie = [];
+icons.forEach(element => {
+	if(categorie.includes(element.category)==false){
+		categorie.push(element.category);
+	}
+});
+// console.log(categorie);
+
+const filtro = document.getElementById("filtro");
+categorie.forEach(
+	(element)=>{
+		filtro.innerHTML += `<option value="${element}">${element}</option>`
+	}
+);
