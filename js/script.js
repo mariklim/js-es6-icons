@@ -121,15 +121,40 @@ const icons = [
   ];
 
 
-
+// per rpimo salviamo il campo dove stamperemo cards
 const ContainerCards = document.getElementById("cards");
  
-// per stampare le carte
+// per stampare le carte usiamo il ciclo forEach per elemento
 icons.forEach(
 	(element) => {
 
+		// destrutturazione per selezionare le proprieta dal  nostro oggetto
 		const{name, family, prefix} = element;
+		// attenzione "= element" e non "= icons"!!!
+
 		ContainerCards.innerHTML += `<div class="card">
-									<i class="${family} ${prefix}${name}"></i></div>`;
+									<i class="${family} ${prefix}${name}"><div class "icon-name">${name}</div></i>
+									</div>`;
 					}
 	);
+
+// Milestone 2
+// Coloriamo le icone per tipo
+
+const coloriCategorie = {
+	"food" : "green",
+	"beverage": "yellow",
+	"animal": "pink"
+}
+
+// attravero map creo nuovo array con aggiunta dei colori in ogni elemento-oggetto
+const coloredCards = icons.map(
+	(element) => {
+		element.color = coloriCategorie[element.category];
+		return element;
+	}
+);
+
+
+// console.log(coloredCards);
+
